@@ -18,13 +18,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link {{ request()->is('/') ? 'active':'' }}" aria-current="{{ request()->is('/') ? 'page': false }}" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/about">About Me</a>
+                    <a class="nav-link {{ request()->is('about') ? 'active':'' }}" aria-current="{{ request()->is('about') ? 'page': false }}" href="/about">About Me</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
+                    <a class="nav-link {{ request()->is('contact') ? 'active':'' }}" aria-current="{{ request()->is('contact') ? 'page': false }}" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link {{ request()->is('blogs') ? 'active':'' }}" aria-current="{{ request()->is('blogs') ? 'page': false }}" href="/blogs">My Blogs</a>
                     </li>
                 </ul>
                 </div>
@@ -32,7 +35,7 @@
         </nav>
     </div>
     <div class="container">
-        <h1>{{ $slot }}</h1>
+        {{ $slot }}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
