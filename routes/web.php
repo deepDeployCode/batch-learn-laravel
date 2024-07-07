@@ -15,4 +15,4 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/blogs', [BlogController::class, 'index']);
 
-Route::get('/blogs/{slug}', [BlogController::class, 'findBlog']);
+Route::get('/blogs/{blog:slug}', [BlogController::class, 'findBlog']);

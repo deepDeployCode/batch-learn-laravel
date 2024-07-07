@@ -9,8 +9,8 @@ class BlogController{
         return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::all()]);
     }
 
-    public function findBlog($slug){
-        $blog = Blog::find($slug);
+    public function findBlog(Blog $blog){
+        // $blog = Blog::find($slug);
         return view('blog', ['title' => 'Single Post', 'blog' => $blog]);
     }
 }

@@ -1,1 +1,8 @@
 Repository pattern => mengelola bisnis proses
+
+
+
+insert into blogs values('','Judul Artikel 1', 'Muh. Ahyan Saputra','judul-artikel-1', '
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, minus. Unde dignissimos rerum ipsum id fuga, laborum quam eius assumenda repellendus dolores porro, vel adipisci excepturi deleniti tempora hic, perferendis nisi. Illum accusamus esse iste totam natus nobis, dignissimos, eum quisquam possimus quibusdam quidem earum ducimus eius voluptatem, doloremque fuga!', Null, Null);
+insert into blogs values('','Judul Artikel 2', 'Muh. Ahyan Saputra','judul-artikel-2', '
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad accusantium, quidem autem perferendis facere assumenda ipsam veniam nisi quo labore praesentium et saepe pariatur deserunt dolor reprehenderit voluptatum molestias! Sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil officia, quos neque repudiandae, molestiae commodi veniam quibusdam ullam vero eius voluptate eos ex, perferendis pariatur nobis maxime reprehenderit laudantium praesentium?', Null, Null);
