@@ -10,7 +10,6 @@ class BlogController{
     }
 
     public function findBlog(Blog $blog){
-        // $blog = Blog::find($slug);
         return view('blog', ['title' => 'Single Post', 'blog' => $blog]);
     }
 }
