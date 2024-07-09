@@ -1,0 +1,34 @@
+Repository pattern => mengelola bisnis proses
+
+
+App\Models\Blog::create([
+    'title' => 'Mengenal Bunga Matahari',
+    'author' => 'Maria Dewi',
+    'slug' => 'mengenal-bunga-matahari',
+    'body' => 'Bunga matahari (Helianthus annuus) adalah tanaman berbunga yang dikenal dengan bunga besar berwarna kuning cerah dan biji yang dapat dimakan. Bunga matahari tumbuh subur di daerah beriklim hangat dan membutuhkan sinar matahari penuh. Bunga ini memiliki batang tinggi dan daun besar yang menyerupai bentuk matahari. Selain sebagai tanaman hias, biji bunga matahari juga dapat diolah menjadi minyak biji matahari yang kaya akan asam lemak tak jenuh. Minyak ini sering digunakan dalam masakan dan produk perawatan kulit.'
+]);
+App\Models\Blog::create([
+    'title' => 'Manfaat Buah Pisang untuk Kesehatan',
+    'author' => 'Fitriani Sari',
+    'slug' => 'manfaat-buah-pisang-kesehatan',
+    'body' => 'Buah pisang mengandung banyak nutrisi penting seperti kalium, vitamin C, dan serat. Manfaat buah pisang antara lain membantu menjaga kesehatan jantung, mengatur tekanan darah, dan meningkatkan sistem pencernaan. Selain itu, pisang juga mengandung triptofan yang dapat membantu meningkatkan mood dan mengurangi stres.'
+]);
+App\Models\Blog::create([
+    'title' => 'Tips Merawat Tanaman Hias di Dalam Rumah',
+    'author' => 'Rina Wijaya',
+    'slug' => 'merawat-tanaman-hias-rumah',
+    'body' => 'Tanaman hias di dalam rumah memerlukan perawatan khusus agar tetap sehat dan indah. Beberapa tips merawat tanaman hias di dalam rumah antara lain menyiram dengan cukup, memberikan pupuk secara teratur, dan memastikan tanaman mendapatkan cahaya yang cukup. Selain itu, hindari meletakkan tanaman dekat dengan AC atau radiator.'
+]);
+App\Models\Blog::create([
+    'title' => 'Resep Sederhana Membuat Smoothie Berenergi',
+    'author' => 'Dian Pratiwi',
+    'slug' => 'resep-smoothie-berenergi',
+    'body' => 'Smoothie berenergi adalah minuman segar yang cocok untuk sarapan atau camilan. Campuran buah-buahan seperti pisang, strawberry, dan blueberry dengan yogurt dan madu akan memberikan energi dan nutrisi. Cukup blender semua bahan hingga halus, dan nikmati smoothie berenergi!'
+]);
+App\Models\Blog::create([
+    'title' => 'Pengenalan Seni Lukis Abstrak',
+    'author' => 'Andi Kusuma',
+    'slug' => 'seni-lukis-abstrak',
+    'body' => 'Seni lukis abstrak adalah bentuk seni visual yang tidak menggambarkan objek nyata dengan detail. Lukisan abstrak lebih fokus pada bentuk, warna, dan komposisi. Beberapa seniman terkenal dalam seni lukis abstrak antara lain Wassily Kandinsky dan Jackson Pollock. Lukisan abstrak sering kali mengundang interpretasi yang berbeda dari setiap penonton.'
+]);
+
