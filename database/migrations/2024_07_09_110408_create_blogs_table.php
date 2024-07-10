@@ -14,10 +14,20 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
+            $table->foreignId('author_id')->constrained(
+                table: 'users',
+                indexName: 'blogs_author_id'
+            );
+            // $table->foreignId('category_id')->constrained(
+            //     table: 'categories',
+            //     indexName: 'blogs_category_id'
+            // );
+            $table->unsignedBigInteger('category_id');
             $table->string('slug')->unique();
             $table->text('body');
             $table->timestamps();
+
+            // $table->foreignId('category_id')->constrained('categories')->onDelete('set null');
         });
     }
 

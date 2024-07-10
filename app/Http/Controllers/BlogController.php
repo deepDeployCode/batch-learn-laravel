@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blog;
-use App\Http\Controllers\Controller;
 
 class BlogController{
     public function index(){
