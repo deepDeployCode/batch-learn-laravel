@@ -5,7 +5,7 @@ use App\Models\Blog;
 
 class BlogController{
     public function index(){
-        return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::all()]);
+        return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::latest()->get()]);
     }
 
     public function findBlog(Blog $blog){

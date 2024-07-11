@@ -10,6 +10,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'body', 'slug', 'author'];
+    protected $with = ['author', 'category'];
 
     public function author(): BelongsTo
     {
