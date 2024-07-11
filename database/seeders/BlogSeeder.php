@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Blog;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class BlogSeeder extends Seeder
 {
@@ -47,5 +49,11 @@ class BlogSeeder extends Seeder
         //         'body' => 'Smoothie berenergi adalah minuman segar yang cocok untuk sarapan atau camilan. Campuran buah-buahan seperti pisang, strawberry, dan blueberry dengan yogurt dan madu akan memberikan energi dan nutrisi. Cukup blender semua bahan hingga halus, dan nikmati smoothie berenergi!'
         //     ]
         // ]);
+
+        $this->call([CategorySeeder::class, UserSeeder::class]);
+        Blog::factory(100)->recycle([
+            Category::all(),
+            User::all()
+        ])->create();
     }
 }
