@@ -1,16 +1,24 @@
 <x-layout>
     <x-slot:title>{{ $title }}</x-slot:title>
+    <form>
+        <div class="input-group mb-3 mt-3">
+            <input type="search" class="form-control" aria-describedby="button-addon2" name="search" id="search">
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+
+    {{ $blogs->links() }}
     @foreach ($blogs as $blog)
 
-    <article class="">
-        <h2 class="">{{ $blog['title'] }}</h2>
-        <div class="">
-            <a href="/authors/{{ $blog->author->username }}">{{ $blog->author->name }}</a> | {{ $blog->created_at->diffForHumans() }}
-            <a href="/categories/{{ $blog->category->slug }}">{{ $blog->category->name }}</a>
+    <div class="card float-start mb-3 mx-3" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ $blog['title'] }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ $blog->created_at->diffForHumans() }}</h6>
+            <p class="card-text">{{ Str::limit($blog['body'], 30) }} <a href="/blogs/{{ $blog['slug'] }}" class="">Read More &raquo;</a></p>
+            Author : <a class="card-link" href="/authors/{{ $blog->author->username }}">{{ $blog->author->name }}</a>
+            Category: <a class="card-link" href="/categories/{{ $blog->category->slug }}">{{ $blog->category->name }}</a>
         </div>
-        <p class="">{{ Str::limit($blog['body'], 150) }}</p>
-        <a href="/blogs/{{ $blog['slug'] }}" class="">Read More &raquo;</a>
-    </article>
+    </div>
 
     @endforeach
 </x-layout>
