@@ -30,6 +30,26 @@
                     <a class="nav-link {{ request()->is('blogs') ? 'active':'' }}" aria-current="{{ request()->is('blogs') ? 'page': false }}" href="/blogs">My Blogs</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav ms-auto">
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome Back {{ auth()->user()->name }}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form action="/logout" method="post">
+                                @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+
+                @else
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                @endauth
+                </ul>
                 </div>
             </div>
         </nav>

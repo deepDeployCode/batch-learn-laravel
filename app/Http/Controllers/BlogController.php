@@ -5,11 +5,7 @@ use App\Models\Blog;
 
 class BlogController{
     public function index(){
-        $blog = Blog::latest();
-        if(request('search')){
-            $blog->where('title', 'like', '%'.request('search').'%');
-        }
-        return view('blogs', ['title' => "Blog Page", 'blogs' => $blog->paginate(5)]);
+        return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::latest()->filter(request(['search', 'category', 'author']))->paginate(5)->withQueryString()]);
     }
 
     public function findBlog(Blog $blog){
