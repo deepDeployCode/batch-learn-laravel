@@ -36,6 +36,9 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome Back {{ auth()->user()->name }}</a>
                         <ul class="dropdown-menu">
                             <li>
+                                <a href="/dashboard">Dashboard</a>
+                            </li>
+                            <li>
                                 <form action="/logout" method="post">
                                 @csrf
                                     <button type="submit" class="dropdown-item">Logout</button>

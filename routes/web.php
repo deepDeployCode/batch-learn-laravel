@@ -8,6 +8,8 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardBlogController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RegistrationController;
 
 Route::get('/', [HomeController::class, 'index']);
@@ -26,6 +28,10 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/registration', [RegistrationController::class, 'index'])->middleware('guest');
 Route::post('/registration', [RegistrationController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::resource('/dashboard/blogs', DashboardBlogController::class)->middleware('auth');
 
 // Route::get('/authors/{user:username}', [UserController::class, 'index']);
 
