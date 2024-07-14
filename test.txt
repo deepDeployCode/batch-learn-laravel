@@ -32,3 +32,5 @@ App\Models\Blog::create([
     'body' => 'Seni lukis abstrak adalah bentuk seni visual yang tidak menggambarkan objek nyata dengan detail. Lukisan abstrak lebih fokus pada bentuk, warna, dan komposisi. Beberapa seniman terkenal dalam seni lukis abstrak antara lain Wassily Kandinsky dan Jackson Pollock. Lukisan abstrak sering kali mengundang interpretasi yang berbeda dari setiap penonton.'
 ]);
 
+
+test

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Blog;
-use App\Http\Controllers\Controller;
 
 class BlogController{
     public function index(){
-        return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::all()]);
+        return view('blogs', ['title' => "Blog Page", 'blogs' => Blog::latest()->filter(request(['search', 'category', 'author']))->paginate(5)->withQueryString()]);
     }
 
     public function findBlog(Blog $blog){
