@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardBlogController extends Controller
 {
@@ -24,7 +26,7 @@ class DashboardBlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.blogs.create', ['title' => 'Create New Layout', 'categories' => Category::all()]);
     }
 
     /**
@@ -65,5 +67,10 @@ class DashboardBlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+    }
+
+    public function checkSlug(Request $request){
+        $slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+        return response()->json(['slug' => $slug]);
     }
 }

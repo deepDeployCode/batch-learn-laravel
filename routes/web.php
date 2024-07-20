@@ -31,6 +31,7 @@ Route::post('/registration', [RegistrationController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
+Route::get('/dashboard/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/blogs', DashboardBlogController::class)->middleware('auth');
 
 // Route::get('/authors/{user:username}', [UserController::class, 'index']);
