@@ -26,7 +26,7 @@ class DashboardBlogController extends Controller
      */
     public function create()
     {
-        return view('dashboard.blogs.create', ['title' => 'Create New Layout', 'categories' => Category::all()]);
+        return view('dashboard.blogs.create', ['title' => 'Create New Blog', 'categories' => Category::all()]);
     }
 
     /**
@@ -34,7 +34,20 @@ class DashboardBlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'author_id' => 'required',
+            'slug' => 'required|unique:blogs',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+        // $validatedData['author_id'] = auth()->user()->id;
+
+
+        // dd($validatedData); 
+
+        Blog::create($validatedData);
+        return redirect('/dashboard/blogs')->with('success', 'New Blog Has Been Added!');
     }
 
     /**
@@ -50,7 +63,7 @@ class DashboardBlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+         return view('dashboard.blogs.update', ['title' => 'Update Blog', 'blog' => $blog, 'categories' => Category::all()]);
     }
 
     /**
@@ -58,7 +71,21 @@ class DashboardBlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'author_id' => 'required',
+            'category_id' => 'required',
+            'body' => 'required'
+        ];
+
+        if($request->slug != $blog->slug){
+            $rules['slug'] = 'required|unique:blogs';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Blog::where('id', $blog->id)->update($validatedData);
+        return redirect('/dashboard/blogs')->with('success', 'Blog Has Been Updated!');
     }
 
     /**
@@ -66,7 +93,8 @@ class DashboardBlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        Blog::destroy($blog->id);
+        return redirect('/dashboard/blogs')->with('success', 'Blog Has Been Deleted!');
     }
 
     public function checkSlug(Request $request){

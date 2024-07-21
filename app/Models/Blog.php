@@ -11,7 +11,7 @@ class Blog extends Model
 {
     use HasFactory;
     use Sluggable;
-    protected $fillable = ['title', 'body', 'slug', 'author'];
+    protected $fillable = ['title', 'body', 'slug', 'author_id', 'category_id'];
     protected $with = ['author', 'category'];
 
     public function sluggable(): array

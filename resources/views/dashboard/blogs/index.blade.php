@@ -5,6 +5,12 @@
         <h1 class="h2">My Blog</h1>
       </div>
 
+      @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role="alert">
+        {{ session('success') }}
+        </div>
+      @endif
+
         <div class="table-responsive small col-lg-8">
         <a href="/dashboard/blogs/create" class="badge bg-primary" style="text-decoration: none">Add Blog</a>
         <table class="table table-striped table-sm">
@@ -24,8 +30,12 @@
               <td>{{ $blog->category->name }}</td>
               <td>
                 <a href="/dashboard/blogs/{{ $blog->slug }}" class="badge bg-info" style="text-decoration: none">detail</a>
-                <a href="/dashboard/blogs/{{ $blog->id }}" class="badge bg-warning" style="text-decoration: none">update</a>
-                <a href="/dashboard/blogs/{{ $blog->id }}" class="badge bg-danger" style="text-decoration: none">delete</a>
+                <a href="/dashboard/blogs/{{ $blog->slug }}/edit" class="badge bg-warning" style="text-decoration: none">update</a>
+                <form action="/dashboard/blogs/{{ $blog->slug }}" method="post">
+                @method('delete')
+                @csrf
+                <button class="badge bg-danger border-0" onclick="return confirm('are you sure?')">delete</button>
+                </form>
               </td>
             </tr>
           @endforeach
